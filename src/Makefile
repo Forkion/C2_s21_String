@@ -56,9 +56,9 @@ valgrind_test: tests/s21_test.c s21_string.a
 	valgrind --trace-children=yes --tool=memcheck --leak-check=full --track-origins=yes --show-leak-kinds=definite,possible -q ./test.out
 
 gcov_report: tests/s21_test.c s21_string.a
-	gcc $(GCOVFLAGS) $< $(SOURCES) -o ./tests/report.out $(ADDFLAGS)
-	./tests/report.out
-	gcov -f ./tests/report.out-*
-	lcov -t "gcov_report" -o tests/Coverage_Report.info -c -d .
-	genhtml -o tests/report tests/Coverage_Report.info
-	rm -f *.gcno *.gcda tests/*.info tests/report.out *.gcov
+	@gcc $(GCOVFLAGS) $< $(SOURCES) -o ./tests/report.out $(ADDFLAGS)
+	@./tests/report.out
+	@gcov -f ./tests/report.out-*
+	@lcov -t "gcov_report" -o tests/Coverage_Report.info -c -d .
+	@genhtml -o tests/report tests/Coverage_Report.info
+	@rm -f *.gcno *.gcda tests/*.info tests/report.out *.gcov
