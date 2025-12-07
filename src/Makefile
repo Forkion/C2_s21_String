@@ -36,8 +36,8 @@ clang_check:
 	@clang-format -n --style=Google $(TESTS)
 
 clean:
-	@rm -rf ./*/*.o
-	@rm -rf s21_string.a
+	@rm -rf /*/*.o
+	@rm -rf *.a
 	@rm -rf *.out
 	@rm -rf ./tests/*.gcda
 	@rm -rf ./tests/*.gcno
